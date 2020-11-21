@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=1200, initial-scale=0.1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <title>2018年TI杯大学生电子设计竞赛题D-手势识别-信息发布-全国大学生电子设计竞赛培训网</title>  <meta name="keywords" content="" />  <meta name="description" content="2018年TI杯大学生电子设计竞赛题D-手势识别" />  <link rel="shortcut icon"  href="https://www.nuedc-training.com.cn/logo.ico">
+  <link rel="stylesheet" href="https://static.nuedc-training.com.cn/css/style3.css?=23">
+  <link rel="stylesheet" href="https://static.nuedc-training.com.cn/css/styleNew.css?=39">
+  <!--<link rel="stylesheet" href="https://static.nuedc-training.com.cn/css/style.min.css?v=16">-->
+  <script src="https://static.nuedc-training.com.cn/js/jquery.min.js"></script>
+  <script src="https://static.nuedc-training.com.cn/js/Validform_v5.3.2_min.js"></script>
+  <link href="https://static.nuedc-training.com.cn/css/swiper.min.css" rel="stylesheet">
+  <script src="https://static.nuedc-training.com.cn/js/swiper.min.js"></script>
+  <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>-->
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <style>
+      html {
+        overflow-x: hidden;
+      }
+      body {
+        overflow-x: visible
+      }
+    </style>
+	<![endif]-->
+</head>
+<!-- <style>
+  *{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+}
+.index-information-box img {
+    left: -220px;
+  }
+</style> -->
+<script>
+$(function(){
+	var a = "https://www.nuedc-training.com.cn/index/mall/sign";
+
+	$(".nav-user-sign").click(function(){
+		if(!$(this).hasClass("active")){
+			$.ajax({
+				type:"GET",
+				url:a,
+				dataType:"json",
+				data:'',
+				async:true,
+				success:function (e) {
+					if(e.status === 1){
+						$(".head-popup").show()
+						$(".popup-main-title").html(e.info)
+						$("#popupNum").html(e.data.sign_count)
+						$(".popup-main-li").each(function(index){
+							if(index < e.data.sign_count){
+								$(this).find(".popup-mainItem-bg").show()
+							}
+						})
+					}
+					if(e.status === 0){
+						$(".head-popup").show()
+						$(".popup-main-title").html(e.info)
+						$("#popupNum").html(e.data.sign_count)
+						$(".popup-main-li").each(function(index){
+							if(index < e.data.sign_count){
+								$(this).find(".popup-mainItem-bg").show()
+							}
+						})
+					}
+					if(e.status === 2){
+							window.location.href = e.data
+					}
+				}
+			})
+		}
+	})
+
+	$("#userBtn").click(function(){
+		$.ajax({
+				type:"GET",
+				url:a,
+				dataType:"json",
+				data:'',
+				async:true,
+				success:function (e) {
+					if(e.status === 1){
+						$(".head-popup").show()
+						$(".popup-main-title").html(e.info)
+						$("#popupNum").html(e.data.sign_count)
+						$(".popup-main-li").each(function(index){
+							if(index < e.data.sign_count){
+								$(this).find(".popup-mainItem-bg").show()
+							}
+						})
+					}
+					if(e.status === 0){
+						$(".head-popup").show()
+						$(".popup-main-title").html(e.info)
+						$("#popupNum").html(e.data.sign_count)
+						$(".popup-main-li").each(function(index){
+							if(index < e.data.sign_count){
+								$(this).find(".popup-mainItem-bg").show()
+							}
+						})
+					}
+					if(e.status === 2){
+							window.location.href = e.data
+					}
+				}
+			})
+	})
+
+	$(".popup-head-close").click(function(){
+		$(".head-popup").hide()
+		window.location.href = window.location.href
+	})
+
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 200) {
+			$(".nav").addClass("active")
+		} else {
+			$(".nav").removeClass("active")
+		}
+	})
+	  if ($("#searchForm").length) {
+        var $form = $("#searchForm").Validform({
+          tiptype: 4,
+          ignoreHidden: true,
+          ajaxPost: false,
+          beforeSumbmit: function () {
+
+          },
+          callback: function (data) {
+
+          }
+        })
+      }
+      if ($('#bannerWrap').length) {
+        var banner = new window.GZApp.Scroll({
+          mainWrap: '#bannerWrap',
+          auto: true,
+          speed: 0.5,
+          tagWrap: '#bannerTab2'
+        })
+        banner.showHide();
+      }
+})
+</script>
+<!-- 	<div class="tip-pop" style="position: fixed; top: 0px; left: 50%; transform: translate(-50%); width: 1200px; margin: 0px auto; padding: 3px 20px; background-color: #fff7db;color: #555555; text-align: left; font-size: 14px; border-radius: 4px; z-index: 9; border-radius: 6px;box-sizing: border-box;">
+		<p style="font-size: 13px;text-align: center;">全国大学生电子设计竞赛培训网将于2020年5月19日 21:00-23:00 进行升级维护，期间部分功能将会无法使用，给您带来的不便敬请谅解。 <a href="" style="color: #0070cf">查看详情</a>
+		<span class="colse-tip-pop" style="padding-left: 10px; cursor: pointer;">X</span>
+		</p>
+	</div> -->
+<script>
+	$('.colse-tip-pop').click(function () {
+		$('.tip-pop').hide()
+	})
+</script>
+<section class="head-popup">
+	<div class="popup-main">
+			<h2 class="popup-main-title">签到</h2>
+			<div class="popup-main-test">
+				已连续签到&nbsp; <span id="popupNum">0</span> &nbsp;天
+			</div>
+		<ul class="popup-main-ul clearfix">
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第一天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第二天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第三天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第四天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第五天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" style="width:144px;">
+					<p class="popup-main-date">第六天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon2.png"/>
+						<img class="popup-mainItem-img" src="https://static.nuedc-training.com.cn/images/double-icon.png"/>						<p>2赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" style="width:144px;">
+					<p class="popup-main-date">第七天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon2.png"/>
+						<img class="popup-mainItem-img" src="https://static.nuedc-training.com.cn/images/double-icon.png"/>						<p>2赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+					</ul>
+		<a href="https://www.nuedc-training.com.cn/index/answer/index" target="_blank" class="popup-main-link">前往每周一练，赢取100赫兹币</a>
+		<div class="popup-head-close"></div>
+	</div>
+	<div class="popup-bg"></div>
+</section>
+
+<body style="-webkit-overflow-scrolling: touch;">
+<div class="header-nav-group">
+	<header class="header">
+	<div class="container clearfix">
+				<a class="logo" href="https://www.nuedc-training.com.cn/" title="全国大学生电子设计竞赛培训网">
+			<img src="https://res.nuedc-training.com.cn/s/png/2019/01/26/bbs_201901266708.png" alt="全国大学生电子设计竞赛培训网">
+		</a>
+				<div class="header-right">
+			<form id="searchForm" action="https://www.nuedc-training.com.cn/index/search/bbs" class="header-search" method="get" onsubmit="$(this).attr('action', $('#search_type').val());return true;">
+				<span>
+					<select class="header-sel" name="st" id="search_type">
+						<option value="https://www.nuedc-training.com.cn/index/search/bbs" >电赛论坛</option>
+						<option value="https://www.nuedc-training.com.cn/index/search/news" >信息发布</option>
+						<option value="https://www.nuedc-training.com.cn/index/search/training" >培训资源</option>
+					</select>
+				</span>
+				<span class="header-line"></span>
+				<input class="header-text" placeholder="输入您要搜索的关键词" type="search" name="w" id="" datatype="*" nullmsg="请输入搜索内容！" value="">
+				<button class="header-submit" type="submit">搜索</button>
+			</form>
+		</div>
+	</div>
+	</header>
+	<nav class="nav">
+		<div class="container clearfix">
+			<ul class="clearfix leftCol nav-ul">
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/" class="nav-link ">首页</a>
+				</li>
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/index/news" class="nav-link active">信息发布</a>
+				</li>
+				<li class="leftCol" style="position: relative">
+					<a href="https://bbs.nuedc-training.com.cn"  class="nav-link">电赛论坛</a>
+					<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>
+				</li>
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/index/activity" class="nav-link ">活动专区</a>
+				</li>
+				<li class="leftCol" style="position: relative">
+					<a href="https://www.nuedc-training.com.cn/index/video" class="nav-link ">培训资源</a>
+					<!--<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>-->
+				</li>
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/index/review" class="nav-link ">往届回顾</a>
+				</li>
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/index/mall" class="nav-link ">兑换商城
+						<!--<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>-->
+					</a>
+				</li>
+								<li class="leftCol review-header-li" style="position: relative">
+					<a href="javascript:;" class="nav-link ">板卡申请
+						<!--<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>-->
+					</a>
+					<ul class="header-review-list">
+						<li class="header-review-li"><a href="https://www.nuedc-training.com.cn/index/evm/index">竞赛支持</a></li>
+						<li class="header-review-li"><a href="https://www.nuedc-training.com.cn/index/card/index">教师专区</a></li>
+					</ul>
+				</li>
+								 <li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/mooc/index/index" class="nav-link ">慕课
+						<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>
+					</a>
+				</li>
+			</ul>
+			<style>
+				.header-review-list {
+					position: absolute;
+					top: 60px;
+					left: 50%;
+					transform: translate(-50%, 0);
+					width: 110px;
+					background:rgba(255,255,255,1);
+					box-shadow:0px 2px 4px 0px rgba(0,0,0,0.3);
+					z-index: 9;
+					display: none;
+
+				}
+				.header-review-li {
+					padding: 0 0px;
+				}
+				.header-review-li a {
+					display: block;
+					padding: 14px 0;
+					text-align: center;
+					font-size: 14px;
+					border-bottom: 1px solid #D8D8D8;
+					color: #333333;
+				}
+
+				.header-review-li:last-child a {
+					border: 0;
+				}
+				.header-review-li:hover a {
+					color: #4583FF;
+					background-color: #fff;
+				}
+				.review-header-li:hover .header-review-list {
+					display: block;
+				}
+			</style>
+			<div class="nav-user rightCol clearfix">
+				<!-- <a href="http://tj.21dianyuan.com/KJVOXrPl" class="leftCol nav-user-buy" target="_blank" style="margin-right:5px;">
+					<div id="openNewBuy" class="nav-user-buy-wrap hide">
+						<div class="nav-user-buy-link">官方认证购买渠道</div>
+						<button id="closeNewBuy" class="nav-user-buy-btn"></button>
+					</div>
+				</a> -->
+						<div class="nav-nologin rightCol">
+				<a href="https://www.nuedc-training.com.cn/index/login?referer=https://www.nuedc-training.com.cn/index/news/details/new_id/56">登录</a>
+				<span>&nbsp;|&nbsp;</span>
+				<a href="https://www.nuedc-training.com.cn/index/register">注册</a>
+			</div>
+						</div>
+		</div>
+	</nav>
+</div>
+  <ul class="leader" style="display: block;bottom:40%;">
+    <li class="leader-item item4">
+      <div class="a">
+		  <div class="leader-item4-hide">
+			  <p class="leader-item4-title">编辑推荐</p>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://www.nuedc-training.com.cn/index/news/details/new_id/154" target="_blank">TI 杯2019年全国大学生电子设计竞赛赛题</a></span></li>
+			  </ul>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://www.nuedc-training.com.cn/index/news/details/new_id/145" target="_blank">2019年全国大学生电子设计竞赛仪器设备和主要元器件清单</a></span></li>
+			  </ul>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://www.nuedc-training.com.cn/index/news/details/new_id/143" target="_blank">2019年全国大学生电子设计竞赛实施过程说明</a></span></li>
+			  </ul>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://www.nuedc-training.com.cn/index/live/details/live_id/13" target="_blank">全国大学生电子设计竞赛组织工作会议直播</a></span></li>
+			  </ul>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://bbs.nuedc-training.com.cn/thread-682-1-1.html" target="_blank">电赛加油站 | 电赛教材抢“鲜”看！</a></span></li>
+			  </ul>
+			  		  </div>
+      </div>
+    </li>
+   </ul>
+   
+<script>
+	function get_cookie(Name) {
+		var search = Name + "="//查询检索的值
+		var returnvalue = "";//返回值
+		if (document.cookie.length > 0) {
+			sd = document.cookie.indexOf(search);
+			if (sd!= -1) {
+					sd += search.length;
+					end = document.cookie.indexOf(";", sd);
+					if (end == -1)
+					end = document.cookie.length;
+					//unescape() 函数可对通过 escape() 编码的字符串进行解码。
+					returnvalue=unescape(document.cookie.substring(sd, end))
+				}
+		}
+		return returnvalue;
+	}
+
+	if (get_cookie("buyClose")) {
+		$('#openNewBuy').parent().hover(function () {
+			$('#openNewBuy').show()
+		}, function () {
+			$('#openNewBuy').hide()
+		})
+	} else {
+		$('#openNewBuy').removeClass('hide')
+		$('#closeNewBuy,#openNewBuy').show()
+		$('#closeNewBuy').click(function (e) {
+			e.stopPropagation()
+			document.cookie="buyClose=1;domain=.nuedc-training.com.cn;expires=Fri, 31 Dec 9999 23:59:59 GMT";
+			$('#openNewBuy').hide().addClass('hide')
+			$('#closeNewBuy').hide()
+			$('#openNewBuy').parent().hover(function () {
+				$('#openNewBuy').show()
+			}, function () {
+				$('#openNewBuy').hide()
+			})
+			return false
+		})
+	}
+</script>
+
+<script>
+  news_id = '56';
+</script>
+<body onselectstart="return false">
+<section class="news-bg">
+  <section class="container">
+    <section class="clearfix">
+      <ul class="news-crumbs clearfix">
+        <li class="news-crumbs-item"><a href="https://www.nuedc-training.com.cn/index/news/index">全部</a></li>
+        <li class="video-crumbs-item"><em></em></li>
+        <li class="news-crumbs-item"><a href="https://www.nuedc-training.com.cn/index/news/index/id/6">竞赛动态</a></li>
+        <li class="video-crumbs-item"><em></em></li>
+        <li class="news-crumbs-item">2018年TI杯大学生电子设计竞赛题D-手势识别</li>
+      </ul>
+    </section>
+    <section class="news-main clearfix">
+      <div class="newsMain-left" style="width:800px">
+        <div class="newsMain-content">
+          <div class="clearfix">
+            <div class="newsHeader-left clearfix">
+                            <!-- <span class="newsHeader-a">大学生</span>
+              <span class="newsHeader-a">邀请赛</span> -->
+            </div>
+            <ul class="share-ul clearfix">
+              <li class="share-li">
+                <div class="bdsharebuttonbox">
+                  <a href="#" class="bds_more" data-cmd="more">分享</a>
+                  <div class="video-details-share">
+                    <a class="sina" href="javascript:share.weibo();"></a>
+                    <a class="qqzone" href="javascript:share.qzone();"></a>
+                    <a class="qq" class="sharetotqq" href="javascript:share.qq();"></a>
+                    <a class="wechat-icon" href="javascript:share.weixin();"></a>
+                  </div>
+                </div>
+              </li>
+              <!-- <li class="share-li">
+                <a href="" class="share-liA"></a>
+                <span>收藏</span>
+              </li> -->
+            </ul>
+          </div>
+          <h2 class="newsMain-content-title">2018年TI杯大学生电子设计竞赛题D-手势识别</h2>
+          <div class="newsMain-icon clearfix" style="margin:18px 0 32px 0;">
+            <div class="clearfix newsMain-icon-item"><i class="newsMain-i1"></i><span>2018-07-20 07:30</span></div>
+            <div class="clearfix newsMain-icon-item"><i class="newsMain-i3"></i>竞赛动态</div>
+          </div>
+          <div class="newsMain-content-zhaiyao">
+            摘要：2018年TI杯大学生电子设计竞赛题D-手势识别          </div>
+          <p style="text-align:center"><span style="font-size:24px;font-family:&#39;Times New Roman&#39;,serif;letter-spacing: -1px">2018</span><span style="font-size:24px;font-family:黑体;letter-spacing:-1px">年</span><span style="font-size:24px;font-family:&#39;Times New Roman&#39;,serif;letter-spacing:-1px">TI</span><span style="font-size:24px;font-family:黑体;letter-spacing:-1px">杯大学生电子设计竞赛</span></p><p style="text-align:center;line-height:28px"><strong><span style="font-size:19px;font-family:&#39;微软雅黑&#39;,sans-serif">D</span></strong><strong><span style="font-size:19px;font-family:&#39;微软雅黑&#39;,sans-serif">题：手势识别装置</span></strong></p><p style="margin-top:5px;text-align:left;line-height:31px"><span style="font-size:19px;font-family:黑体">1</span><span style="font-size:19px;font-family:黑体">．任务 </span></p><p style="text-indent:28px;line-height:31px"><span style="font-size:16px;font-family: 宋体">基于</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">TI</span><span style="font-size:16px;font-family:宋体">公司传感芯片</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">FDC2214</span><span style="font-size:16px;font-family:宋体">设计制作一个手势识别装置，实现对猜拳游戏和划拳游戏的判决。该装置也可以直接使用</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">FDC2214 EVM</span><span style="font-size:16px;font-family:宋体">板，要求所使用的</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">FDC2214</span><span style="font-size:16px;font-family:宋体">芯片或者</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">EVM</span><span style="font-size:16px;font-family:宋体">板不得超过</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">2</span><span style="font-size:16px;font-family:宋体">块。</span></p><p style="text-indent:28px;line-height:31px"><span style="font-size:16px;font-family: 宋体">装置具有训练和判决两种工作模式。在判决模式下实验装置能对指定人员进行猜拳游戏和划拳游戏的判决。这里猜拳游戏的判决是指对手势比划“石头”、“剪刀”和“布”的判定，划拳游戏的判定是指手势比划“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">1</span><span style="font-size:16px;font-family:宋体">”、“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">2</span><span style="font-size:16px;font-family: 宋体">”、“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">3</span><span style="font-size:16px;font-family:宋体">”、“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">4</span><span style="font-size:16px;font-family: 宋体">”和“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">5</span><span style="font-size:16px;font-family:宋体">”的判定。在训练模式下能对任意人员进行猜拳游戏和划拳游戏的手势训练，经过有限次训练后，能进行正确的猜拳游戏和划拳游戏的手势判决。</span></p><p style="margin-top:5px;text-align:left;line-height:31px"><span style="font-size:19px;font-family:黑体">2</span><span style="font-size:19px;font-family:黑体">．要求</span></p><p style="line-height: 31px; text-indent: 2em;"><span style="font-size:16px;font-family: 宋体">（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">1</span><span style="font-size:16px;font-family:宋体">）装置工作<span style="color:black">在判决模式下，能对参赛者指定人员进行猜拳判决，给出手势“石头”、“剪刀”和“布”的准确判决，要求每一次判决的时间不大于</span></span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">1</span><span style="font-size:16px;font-family:宋体;color:black">秒。</span><span style="font-size:16px;font-family:宋体;color:black"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; （</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">18</span><span style="font-size:16px;font-family:宋体;color:black">分）</span></p><p style="line-height: 31px; text-indent: 2em;"><span style="font-size:16px;font-family: 宋体;color:black">（</span><span style="font-size: 16px;font-family:&#39;Times New Roman&#39;,serif;color:black">2</span><span style="font-size:16px;font-family:宋体;color:black">）装置工作在判决模式下，能对参赛者指定人员进行划拳判决，给出手势“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">1</span><span style="font-size:16px;font-family:宋体;color:black">”、“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">2</span><span style="font-size:16px;font-family:宋体;color:black">”、“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">3</span><span style="font-size:16px;font-family:宋体;color:black">”、“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">4</span><span style="font-size:16px;font-family:宋体;color:black">”和“</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">5</span><span style="font-size:16px;font-family:宋体;color:black">”的准确判决，要求每一次判决的时间不大于</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">1</span><span style="font-size:16px;font-family:宋体;color:black">秒。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">28</span><span style="font-size:16px;font-family:宋体;color:black">分）</span></p><p style="text-indent:28px;line-height:31px"><span style="font-size:16px;font-family: 宋体">（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">3</span><span style="font-size:16px;font-family:宋体">）<span style="color:black">装置工作在</span>训练模式下，对任意测试者进行猜拳的手势训练，每种动作训练次数不大于</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">3</span><span style="font-size:16px;font-family: 宋体">次，总的训练时间不大于</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">1</span><span style="font-size:16px;font-family:宋体">分钟；然后切换工作模式到判决模式，对被训练的人员进行猜拳判决<span style="color:black">，要求每一次判决的时间不大于</span></span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">1</span><span style="font-size:16px;font-family:宋体;color:black">秒。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">21</span><span style="font-size:16px;font-family:宋体;color:black">分）</span></p><p style="text-align: left; line-height: 31px; text-indent: 2em;"><span style="font-size:16px;font-family:宋体">（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">4</span><span style="font-size:16px;font-family: 宋体">）<span style="color:black">装置工作在</span>训练模式下，对任意测试者进行划拳的手势训练，每种动作训练次数不大于</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">3</span><span style="font-size:16px;font-family:宋体">次，总的训练时间不大于</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">2</span><span style="font-size:16px;font-family: 宋体">分钟；然后切换工作模式到判决模式，对被训练的人员进行划拳判决<span style="color:black">，要求每一次判决的时间不大于</span></span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">1</span><span style="font-size:16px;font-family:宋体;color:black">秒。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif;color:black">29</span><span style="font-size:16px;font-family:宋体;color:black">分）</span></p><p style="text-indent:28px;line-height:31px"><span style="font-size:16px;font-family: 宋体">（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">5</span><span style="font-size:16px;font-family:宋体">）其他。</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-size:16px;font-family:宋体">（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif"> 4</span><span style="font-size:16px;font-family: 宋体">分）</span></p><p style="margin-bottom:10px;text-align:left;text-indent:28px;line-height:31px"><span style="font-size:16px;font-family: 宋体">（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">6</span><span style="font-size:16px;font-family:宋体">）设计报告。</span><span style="font-size: 16px;font-family:&#39;Times New Roman&#39;,serif"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-size:16px;font-family:宋体">（</span><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">20</span><span style="font-size:16px;font-family: 宋体">分）</span></p><table cellspacing="0" cellpadding="0" align="center"><tbody><tr style=";page-break-inside:avoid;height:14px" class="firstRow"><td style="border: 1px solid windowtext; padding: 0px 7px;" valign="top" height="14"><p style="text-align:center;line-height:24px"><span style="font-size:   16px;font-family:宋体">项&nbsp; 目</span></p></td><td style="border-color: windowtext; border-style: solid solid solid none; border-width: 1px 1px 1px medium; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="14"><p style="text-align:center;line-height:24px"><span style="font-size:   16px;font-family:宋体">主要内容</span></p></td><td style="border-color: windowtext; border-style: solid solid solid none; border-width: 1px 1px 1px medium; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" height="14"><p style="line-height:24px"><strong><span style="font-size:16px;font-family:   宋体">分数</span></strong></p></td></tr><tr style=";page-break-inside:avoid;height:16px"><td style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="16"><p style="line-height:24px"><span style="font-size:16px;font-family:宋体">系统方案</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" valign="top" height="16"><p style="line-height:24px"><span style="font-size:16px;font-family:宋体">比较与选择，方案系统描述，方案理论分析与计算</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="16"><p style="text-indent:16px;line-height:24px"><strong><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">6</span></strong></p></td></tr><tr style=";page-break-inside:avoid;height:16px"><td style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="16"><p style="line-height:24px"><span style="font-size:16px;font-family:宋体">电路与程序设计</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" valign="top" height="16"><p style="line-height:24px"><span style="font-size:16px;font-family:宋体">系统原理图和各个部分原理图；系统软件流程图</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="16"><p style="text-align:center;line-height:24px"><strong><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">4</span></strong></p></td></tr><tr style=";page-break-inside:avoid;height:8px"><td style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="8"><p style="line-height:24px"><span style="font-size:16px;font-family:宋体">测试方案与测试结果</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" valign="top" height="8"><p style="line-height:24px"><span style="font-size:16px;font-family:宋体">测试方案合理；测试结果完整；测试结果分析；基本测试仪器</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="8"><p style="text-align:center;line-height:24px"><strong><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">6</span></strong></p></td></tr><tr style=";page-break-inside:avoid;height:19px"><td style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="19"><p style="line-height:24px"><span style="font-size:16px;font-family:宋体">设计报告结构及规范性</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" valign="top" height="19"><p style="line-height:24px"><span style="font-size:16px;font-family:宋体">摘要；正文结果规范；图表的完整性与准确性。</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="19"><p style="text-align:center;line-height:24px"><strong><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">4</span></strong></p></td></tr><tr style=";page-break-inside:avoid;height:32px"><td colspan="2" style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="32"><p style="text-align:left;line-height:24px"><span style="font-size:   16px;font-family:宋体">总分</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="32"><p style="text-align:center;line-height:24px"><strong><span style="font-size:16px;font-family:&#39;Times New Roman&#39;,serif">20</span></strong></p></td></tr></tbody></table><p class="MsoListParagraph" style="margin-top:5px;margin-right:0;margin-bottom:0;margin-left:31px;margin-bottom:0;text-align:left;line-height:31px"><strong><span style="font-size:19px;font-family:黑体">3． </span></strong><strong><span style="font-size:19px;font-family:华文中宋">说明</span></strong></p><p class="MsoListParagraph" style="margin-left:8px;text-indent:24px;line-height:31px"><span style="font-size:16px;font-family:宋体;color:black">（1）题目中“指定人员”是参赛队学生自己指定的人员，“</span><span style="font-size:16px;font-family:宋体;color:black">任意测试者</span><span style="font-size:16px;font-family:宋体;color:black">”</span><span style="font-size:16px;font-family:宋体;color:black">是由评审老师临时选择的人员。</span></p><p class="MsoListParagraph" style="margin-left:8px;text-indent:24px;line-height:31px"><span style="font-size:16px;font-family:宋体;color:black">（2）FDC2214是基于LC谐振电路原理的一个电容检</span><span style="font-size:16px;font-family:宋体;color:black">测传感器。其基本原理如图1所示，在芯片每个检测通道的输入端连接一个电感和电容，组成LC电路，被测电容传感端（图1中灰色标识部分即为被测电容）与LC电路相连接，将产生一个振荡频率，根据该频率值可计算出被测电容值。</span></p><p style="margin-top:10px;text-align:center;line-height:31px"><img style="padding:5px;" src="https://res.nuedc-training.com.cn/s/png/2019/02/11/news_201902111165.png"/></p><p style="margin-top:10px;text-align:center;line-height:31px"><span style="font-size:16px;font-family:宋体;color:black">图1 &nbsp;FDC2214传感器基本原理</span></p><p style="margin-top:10px;text-align:left;line-height:31px"><span style="font-size:16px;font-family:宋体;color:black">&nbsp;&nbsp;&nbsp; 利用FDC2214的工作原理可实现手势接近和识别的功能，如图2所示，黄色部分称为“FDC2214的传感平面”，该平面为导体材质，当人手接近该导体传感平面时，传感端的电容发生了变化，这就会导致LC电路振荡频率的变化，从而反映出手势接近，以及手势的判定。</span></p><p style="margin-top:10px;text-align:left;text-indent:32px;line-height:31px"><span style="font-size:16px;font-family:宋体;color:black">（2）基于FDC2214实现手势接近和判决的实验中存在如下的特征：传感平面的面积越大、手势与传感平面的距离越小，感应的频率变化越大，系统会越灵敏，但同时也可能引入越多的噪声。所以在设计该传感平面时，要根据实际情况综合考虑。进一步设计文档可参考如下连接：</span><a href="http://www.ti.com/lit/an/snoa940a/snoa940a.pdf" style="font-size: 16px; font-family: 宋体; color: black; text-decoration: underline;"><span style="font-size:16px;font-family:宋体;color:black">http://www.ti.com/lit/an/snoa940a/snoa940a.pdf</span></a></p><p style="margin-top:10px;text-align:center;line-height:31px"><img style="padding: 5px; width: 306px; height: 252px;" src="https://nuedc-training-com-cn.oss-cn-hangzhou.aliyuncs.com/s/png/2018/07/20/news_201807203069.png" width="306" height="252"/></p><p style="margin-top:10px;text-align:center;line-height:31px"><span style="font-size:16px;font-family:宋体;color:black">图2&nbsp; 手势感应示意</span></p><p style="margin-top:10px;text-indent: 28px;line-height:31px"><span style="font-size:16px;font-family:宋体;color:black">为了便于进行训练和判决测试，建议学生作品可以对测试区进行指定，如图3所示。在测试或者训练时要求测试者的手势紧贴在测试板上，建议测试者手势与作品的FDC2214传感器距离不小于1厘米。</span></p><p style="margin-top:3px;text-align:center;line-height:31px"><img style="padding: 5px; width: 304px; height: 269px;" src="https://nuedc-training-com-cn.oss-cn-hangzhou.aliyuncs.com/s/png/2018/07/20/news_201807201032.png" width="304" height="269"/></p><p style="text-align:center;line-height:31px"><span style="font-size:16px;font-family:宋体;color:black">图3 &nbsp;手势识别装置的测试示意图</span></p><p style="margin-top:10px;text-align:left;line-height:31px"><span style="font-size:16px;font-family:宋体;color:black">&nbsp;&nbsp;&nbsp; （3）猜拳游戏和划拳游戏手势的具体定义应符合大众认知。对任意测试者进行手势训练时，测试者要遵循学生的指导来进行训练；训练完成后，要在学生的指导下进行手势判决测试。</span></p><p><br/></p>          <!-- 新闻内容 -->
+          <!-- <div class="newsMain-btns clearfix">
+            <a href="" class="newsMain-btns-item" style="margin-right:30px;">收藏</a>
+            <a href="" class="newsMain-btns-item">分享</a>
+          </div> -->
+        </div>
+        
+        <div class="bbs-data">
+                  </div>
+        
+        <div class="newsMain-footer clearfix">
+                    <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/55" class="newsMain-footer-left" title="2018年TI杯大学生电子设计竞赛题C-无线充电电动小车">
+            << 上一篇<br>
+            <span>2018年TI杯大学生电子设计竞赛题C-无线充电电动小车</span>
+          </a>
+                    <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/57" class="newsMain-footer-right" title="2018年TI杯大学生电子设计竞赛题E-能量回收装置">
+            下一篇 >><br>
+            <span>2018年TI杯大学生电子设计竞赛题E-能量回收装置</span>
+          </a>
+                  </div>
+      </div>
+      <div class="newsMain-right" style="width: 360px">
+        <div class="newsT1-right">
+            <div class="news-title">
+                <h2>热点推荐</h2>
+              </div>
+          <ul class="news-right-ul">
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/239" title="2020 年 TI 杯辽宁省大学生电子设计竞赛评审结果公示"> 2020 年 TI 杯辽宁省大学生电子设计竞赛评审结果公示</a>
+              </div>
+            </li>
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/238" title="TI 杯 2020 年省级大学生电子设计竞赛圆满落幕"> TI 杯 2020 年省级大学生电子设计竞赛圆满落幕</a>
+              </div>
+            </li>
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/237" title="2020年“TI杯”山东省大学生电子设计竞赛获奖名单公布"> 2020年“TI杯”山东省大学生电子设计竞赛获奖名单公布</a>
+              </div>
+            </li>
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/236" title="2020年“TI杯”第八届浙江省大学生电子设计竞赛获奖公示名单"> 2020年“TI杯”第八届浙江省大学生电子设计竞赛获奖公示名单</a>
+              </div>
+            </li>
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/235" title="关于公布2020年江苏省TI杯大学生电子设计竞赛评奖结果通知"> 关于公布2020年江苏省TI杯大学生电子设计竞赛评奖结果通知</a>
+              </div>
+            </li>
+                      </ul>
+        </div>
+        <div class="newsT1-right">
+          <div class="news-title">
+            培训资源
+            <a href="https://www.nuedc-training.com.cn/index/video/index" class="newsTitle-a rightCol">更多 ></a>
+          </div>
+          <ul class="">
+                        <li class="newsMainRight-li">
+              <a href="https://www.nuedc-training.com.cn/index/video/video_list" class="video02Right01-img" title="TI 产品和工具在电赛中的应用">
+                <img width="320" height="180" src="https://res.nuedc-training.com.cn/s/png/2020/09/02/courser_202009028585.png" alt="TI 产品和工具在电赛中的应用"/>
+                <p><i></i>TI 产品和工具在电赛中的应用</p>
+              </a>
+            </li>
+                        <li class="newsMainRight-li">
+              <a href="https://www.nuedc-training.com.cn/index/video/video_list" class="video02Right01-img" title="在疫情期间，如何在家准备电赛？">
+                <img width="320" height="180" src="https://res.nuedc-training.com.cn/s/png/2020/08/18/course_202008184487.png" alt="在疫情期间，如何在家准备电赛？"/>
+                <p><i></i>在疫情期间，如何在家准备电赛？</p>
+              </a>
+            </li>
+                      </ul>
+        </div>
+        <div class="news-huodong" style="width: 360px">
+          <div class="news-title clearfix" style="padding-left: 20px;padding-right: 20px;padding-top: 20px;">
+            <h2>活动专区</h2>
+            <a href="https://www.nuedc-training.com.cn/index/activity/index" class="newsTitle-a rightCol">更多 ></a>
+          </div>
+          <ul class="" style="padding-left: 20px;padding-right: 20px">
+                        <li class="newsMainRight-li">
+              <a href="https://www.nuedc-training.com.cn/index/activity/activity_detail/id/28" class="newsMainRight-img" title="晒出你的设计报告，赢惊喜好礼！">
+                <img width="320" height="160" src="https://res.nuedc-training.com.cn/s/png/2020/10/19/activity_202010199138.png" alt="晒出你的设计报告，赢惊喜好礼！"/>
+                <p>晒出你的设计报告，赢惊喜好礼！</p>
+              </a>
+              <!-- <div class="newsMainRight-icon01"><i></i><span>2020年10月16日 - 2020年11月30日</span></div> -->
+            </li>
+                        <li class="newsMainRight-li">
+              <a href="https://www.nuedc-training.com.cn/index/activity/activity_detail/id/27" class="newsMainRight-img" title="电赛直播训练营：TI 产品和工具在电赛中的应用">
+                <img width="320" height="160" src="https://res.nuedc-training.com.cn/s/jpg/2020/10/19/activity_202010195396.jpg" alt="电赛直播训练营：TI 产品和工具在电赛中的应用"/>
+                <p>电赛直播训练营：TI 产品和工具在电赛中的应用</p>
+              </a>
+              <!-- <div class="newsMainRight-icon01"><i></i><span>2020年08月11日 - 2020年09月10日</span></div> -->
+            </li>
+                      </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+</section>
+<footer class="footer">
+    <div class="container clearfix">
+      <div class="leftCol">
+        <nav class="footer-nav clearfix">
+          <a class="footer-link" href="https://www.nuedc-training.com.cn/index/common/site" target="_blank">网站介绍</a>
+          <a class="footer-link" href="https://www.nuedc-training.com.cn/index/common/about" target="_blank">联系我们</a>
+          <a class="footer-link" href="https://www.nuedc-training.com.cn/index/common/reg" target="_blank">注册协议</a>
+          <a class="footer-link" href="https://www.nuedc-training.com.cn/index/common/privacy" target="_blank">隐私条款</a>
+        </nav>
+        <p class="footer-copyright">
+          Copyright 2018-2020 NUEDC All Rights Reserved. 全国大学生电子设计竞赛组织委员会 版权所有 <a class="footer-reference" href="http://www.beian.miit.gov.cn/" target="_blank">津ICP备18002217号-1</a>
+        </p>
+      </div>
+      <div class="footer-list rightCol clearfix">
+        <a href="https://www.nuedc-training.com.cn/index/index?form_model=1" class="leftCol footer-item">
+            <img width="50" src="https://static.nuedc-training.com.cn/images/new/foot-icon1.png"/>
+          <p>电脑版</p>
+        </a>
+        <a href="https://www.nuedc-training.com.cn/mobile/index?form_model=2" class="leftCol footer-item">
+            <img width="50" src="https://static.nuedc-training.com.cn/images/new/foot-icon2.png"/>
+            <p>触屏版</p>
+          </a>
+      </div>
+      <!--<div class="footer-wechat">
+        扫描二维码<br>
+        关注电赛微信
+        <img width="80" height="80" class="wechat" src="https://static.nuedc-training.com.cn/images/wechat.jpg" alt="">
+      </div>-->
+    </div>
+  </footer>
+  <div style="display:none"><script src="//s22.cnzz.com/z_stat.php?id=1274193147&web_id=1274193147" language="JavaScript"></script>
+  <script src="https://res.nuedc-training.com.cn/cnzz_ext.min.js" language="JavaScript"></script>
+  <script>
+    var isuser_this = news_id;
+    if(isuser_this != ''){
+         window.onload = function() {
+        // console.log(_czc);
+        _czc.push(['_trackPageview', "https://www.nuedc-training.com.cn/index/news/details/new_id/"+isuser_this, ""]);
+      };
+    }
+  </script>
+</div>
+  <script async="async" src="//www.ti.com/assets/js/headerfooter/analytics.js"></script>
+  <script src="https://static.nuedc-training.com.cn/js/jquery.downCount.min.js"></script>
+ <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.downCount/1.0.0/jquery.downCount.min.js"></script>-->
+  <script src="https://static.nuedc-training.com.cn/js/player3.2.0/player/cyberplayer.js"></script>
+  <script src="https://static.nuedc-training.com.cn/js/select_area_zh-cn.js"></script>
+  <script src="https://static.nuedc-training.com.cn/js/simple-share.min.js"></script>
+  <script src="https://www.nuedc-training.com.cn/static/js/GZApp.min.js?v=4"></script>
+  <script>
+//  $(function () {
+//    if ($("#searchForm").length) {
+//      var $form = $("#searchForm").Validform({
+//        tiptype: 4,
+//        ignoreHidden: true,
+//        ajaxPost: false,
+//        beforeSumbmit: function () {
+//        
+//        },
+//        callback: function (data) {
+//
+//        }
+//      })
+//    }
+//    if ($('#bannerWrap').length) {
+//      var banner = new window.GZApp.Scroll({
+//        mainWrap: '#bannerWrap',
+//        auto: true,
+//        speed: 0.5,
+//        tagWrap: '#bannerTab2'
+//      })
+//      banner.showHide();
+//    }
+//  })
+  </script>
+  <script>
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?602847cbdad9ab47a063c229686a77e3":"https://jspassport.ssl.qhimg.com/11.0.1.js?602847cbdad9ab47a063c229686a77e3";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script type="text/javascript">
+  var share = new SimpleShare({
+    url: window.location.href,
+    title: "2018年TI杯大学生电子设计竞赛题D-手势识别",
+    content: '2018年TI杯大学生电子设计竞赛题D-手势识别',
+    pic: 'https://res.nuedc-training.com.cn/s/png/2018/07/20/news_201807202081.png'
+  });
+</script>
+<script>
+  var hide = '0';
+  if(hide == 1){
+    $('.nav-user').empty()
+    $(function(){
+      var a = "https://www.nuedc-training.com.cn/index/index/login_new";
+      var times = Math.floor(Math.random() * 3) + 1
+      setTimeout(function() {
+        $.ajax({
+          type:"GET",
+          url:a,
+          dataType:"json",
+          data:'',
+          async:true,
+          xhrFields:{
+              withCredentials:true
+          },
+          success:function (res) {
+           $('.nav-user').html(res.data)
+          }
+        })
+      }, times*1000)
+    }())
+
+  }
+</script>
+</body>
+</html>

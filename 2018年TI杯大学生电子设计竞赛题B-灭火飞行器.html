@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=1200, initial-scale=0.1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <title>2018年TI杯大学生电子设计竞赛题B-灭火飞行器-信息发布-全国大学生电子设计竞赛培训网</title>  <meta name="keywords" content="" />  <meta name="description" content="2018年TI杯大学生电子设计竞赛题B-灭火飞行器" />  <link rel="shortcut icon"  href="https://www.nuedc-training.com.cn/logo.ico">
+  <link rel="stylesheet" href="https://static.nuedc-training.com.cn/css/style3.css?=23">
+  <link rel="stylesheet" href="https://static.nuedc-training.com.cn/css/styleNew.css?=39">
+  <!--<link rel="stylesheet" href="https://static.nuedc-training.com.cn/css/style.min.css?v=16">-->
+  <script src="https://static.nuedc-training.com.cn/js/jquery.min.js"></script>
+  <script src="https://static.nuedc-training.com.cn/js/Validform_v5.3.2_min.js"></script>
+  <link href="https://static.nuedc-training.com.cn/css/swiper.min.css" rel="stylesheet">
+  <script src="https://static.nuedc-training.com.cn/js/swiper.min.js"></script>
+  <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>-->
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <style>
+      html {
+        overflow-x: hidden;
+      }
+      body {
+        overflow-x: visible
+      }
+    </style>
+	<![endif]-->
+</head>
+<!-- <style>
+  *{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+}
+.index-information-box img {
+    left: -220px;
+  }
+</style> -->
+<script>
+$(function(){
+	var a = "https://www.nuedc-training.com.cn/index/mall/sign";
+
+	$(".nav-user-sign").click(function(){
+		if(!$(this).hasClass("active")){
+			$.ajax({
+				type:"GET",
+				url:a,
+				dataType:"json",
+				data:'',
+				async:true,
+				success:function (e) {
+					if(e.status === 1){
+						$(".head-popup").show()
+						$(".popup-main-title").html(e.info)
+						$("#popupNum").html(e.data.sign_count)
+						$(".popup-main-li").each(function(index){
+							if(index < e.data.sign_count){
+								$(this).find(".popup-mainItem-bg").show()
+							}
+						})
+					}
+					if(e.status === 0){
+						$(".head-popup").show()
+						$(".popup-main-title").html(e.info)
+						$("#popupNum").html(e.data.sign_count)
+						$(".popup-main-li").each(function(index){
+							if(index < e.data.sign_count){
+								$(this).find(".popup-mainItem-bg").show()
+							}
+						})
+					}
+					if(e.status === 2){
+							window.location.href = e.data
+					}
+				}
+			})
+		}
+	})
+
+	$("#userBtn").click(function(){
+		$.ajax({
+				type:"GET",
+				url:a,
+				dataType:"json",
+				data:'',
+				async:true,
+				success:function (e) {
+					if(e.status === 1){
+						$(".head-popup").show()
+						$(".popup-main-title").html(e.info)
+						$("#popupNum").html(e.data.sign_count)
+						$(".popup-main-li").each(function(index){
+							if(index < e.data.sign_count){
+								$(this).find(".popup-mainItem-bg").show()
+							}
+						})
+					}
+					if(e.status === 0){
+						$(".head-popup").show()
+						$(".popup-main-title").html(e.info)
+						$("#popupNum").html(e.data.sign_count)
+						$(".popup-main-li").each(function(index){
+							if(index < e.data.sign_count){
+								$(this).find(".popup-mainItem-bg").show()
+							}
+						})
+					}
+					if(e.status === 2){
+							window.location.href = e.data
+					}
+				}
+			})
+	})
+
+	$(".popup-head-close").click(function(){
+		$(".head-popup").hide()
+		window.location.href = window.location.href
+	})
+
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 200) {
+			$(".nav").addClass("active")
+		} else {
+			$(".nav").removeClass("active")
+		}
+	})
+	  if ($("#searchForm").length) {
+        var $form = $("#searchForm").Validform({
+          tiptype: 4,
+          ignoreHidden: true,
+          ajaxPost: false,
+          beforeSumbmit: function () {
+
+          },
+          callback: function (data) {
+
+          }
+        })
+      }
+      if ($('#bannerWrap').length) {
+        var banner = new window.GZApp.Scroll({
+          mainWrap: '#bannerWrap',
+          auto: true,
+          speed: 0.5,
+          tagWrap: '#bannerTab2'
+        })
+        banner.showHide();
+      }
+})
+</script>
+<!-- 	<div class="tip-pop" style="position: fixed; top: 0px; left: 50%; transform: translate(-50%); width: 1200px; margin: 0px auto; padding: 3px 20px; background-color: #fff7db;color: #555555; text-align: left; font-size: 14px; border-radius: 4px; z-index: 9; border-radius: 6px;box-sizing: border-box;">
+		<p style="font-size: 13px;text-align: center;">全国大学生电子设计竞赛培训网将于2020年5月19日 21:00-23:00 进行升级维护，期间部分功能将会无法使用，给您带来的不便敬请谅解。 <a href="" style="color: #0070cf">查看详情</a>
+		<span class="colse-tip-pop" style="padding-left: 10px; cursor: pointer;">X</span>
+		</p>
+	</div> -->
+<script>
+	$('.colse-tip-pop').click(function () {
+		$('.tip-pop').hide()
+	})
+</script>
+<section class="head-popup">
+	<div class="popup-main">
+			<h2 class="popup-main-title">签到</h2>
+			<div class="popup-main-test">
+				已连续签到&nbsp; <span id="popupNum">0</span> &nbsp;天
+			</div>
+		<ul class="popup-main-ul clearfix">
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第一天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第二天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第三天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第四天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" >
+					<p class="popup-main-date">第五天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon.png"/>
+												<p>1赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" style="width:144px;">
+					<p class="popup-main-date">第六天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon2.png"/>
+						<img class="popup-mainItem-img" src="https://static.nuedc-training.com.cn/images/double-icon.png"/>						<p>2赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+							<li class="popup-main-li leftCol" style="width:144px;">
+					<p class="popup-main-date">第七天</p>
+					<div class="popup-main-item">
+												<img src="https://static.nuedc-training.com.cn/images/new/HZ-icon2.png"/>
+						<img class="popup-mainItem-img" src="https://static.nuedc-training.com.cn/images/double-icon.png"/>						<p>2赫兹币</p>
+						<div class="popup-mainItem-bg">
+							<span>已签到</span>
+						</div>
+					</div>
+				</li>
+					</ul>
+		<a href="https://www.nuedc-training.com.cn/index/answer/index" target="_blank" class="popup-main-link">前往每周一练，赢取100赫兹币</a>
+		<div class="popup-head-close"></div>
+	</div>
+	<div class="popup-bg"></div>
+</section>
+
+<body style="-webkit-overflow-scrolling: touch;">
+<div class="header-nav-group">
+	<header class="header">
+	<div class="container clearfix">
+				<a class="logo" href="https://www.nuedc-training.com.cn/" title="全国大学生电子设计竞赛培训网">
+			<img src="https://res.nuedc-training.com.cn/s/png/2019/01/26/bbs_201901266708.png" alt="全国大学生电子设计竞赛培训网">
+		</a>
+				<div class="header-right">
+			<form id="searchForm" action="https://www.nuedc-training.com.cn/index/search/bbs" class="header-search" method="get" onsubmit="$(this).attr('action', $('#search_type').val());return true;">
+				<span>
+					<select class="header-sel" name="st" id="search_type">
+						<option value="https://www.nuedc-training.com.cn/index/search/bbs" >电赛论坛</option>
+						<option value="https://www.nuedc-training.com.cn/index/search/news" >信息发布</option>
+						<option value="https://www.nuedc-training.com.cn/index/search/training" >培训资源</option>
+					</select>
+				</span>
+				<span class="header-line"></span>
+				<input class="header-text" placeholder="输入您要搜索的关键词" type="search" name="w" id="" datatype="*" nullmsg="请输入搜索内容！" value="">
+				<button class="header-submit" type="submit">搜索</button>
+			</form>
+		</div>
+	</div>
+	</header>
+	<nav class="nav">
+		<div class="container clearfix">
+			<ul class="clearfix leftCol nav-ul">
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/" class="nav-link ">首页</a>
+				</li>
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/index/news" class="nav-link active">信息发布</a>
+				</li>
+				<li class="leftCol" style="position: relative">
+					<a href="https://bbs.nuedc-training.com.cn"  class="nav-link">电赛论坛</a>
+					<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>
+				</li>
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/index/activity" class="nav-link ">活动专区</a>
+				</li>
+				<li class="leftCol" style="position: relative">
+					<a href="https://www.nuedc-training.com.cn/index/video" class="nav-link ">培训资源</a>
+					<!--<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>-->
+				</li>
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/index/review" class="nav-link ">往届回顾</a>
+				</li>
+				<li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/index/mall" class="nav-link ">兑换商城
+						<!--<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>-->
+					</a>
+				</li>
+								<li class="leftCol review-header-li" style="position: relative">
+					<a href="javascript:;" class="nav-link ">板卡申请
+						<!--<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>-->
+					</a>
+					<ul class="header-review-list">
+						<li class="header-review-li"><a href="https://www.nuedc-training.com.cn/index/evm/index">竞赛支持</a></li>
+						<li class="header-review-li"><a href="https://www.nuedc-training.com.cn/index/card/index">教师专区</a></li>
+					</ul>
+				</li>
+								 <li class="leftCol">
+					<a href="https://www.nuedc-training.com.cn/mooc/index/index" class="nav-link ">慕课
+						<img width="34" class="nav-ulIcon" src="https://static.nuedc-training.com.cn/images/new/new.png"/>
+					</a>
+				</li>
+			</ul>
+			<style>
+				.header-review-list {
+					position: absolute;
+					top: 60px;
+					left: 50%;
+					transform: translate(-50%, 0);
+					width: 110px;
+					background:rgba(255,255,255,1);
+					box-shadow:0px 2px 4px 0px rgba(0,0,0,0.3);
+					z-index: 9;
+					display: none;
+
+				}
+				.header-review-li {
+					padding: 0 0px;
+				}
+				.header-review-li a {
+					display: block;
+					padding: 14px 0;
+					text-align: center;
+					font-size: 14px;
+					border-bottom: 1px solid #D8D8D8;
+					color: #333333;
+				}
+
+				.header-review-li:last-child a {
+					border: 0;
+				}
+				.header-review-li:hover a {
+					color: #4583FF;
+					background-color: #fff;
+				}
+				.review-header-li:hover .header-review-list {
+					display: block;
+				}
+			</style>
+			<div class="nav-user rightCol clearfix">
+				<!-- <a href="http://tj.21dianyuan.com/KJVOXrPl" class="leftCol nav-user-buy" target="_blank" style="margin-right:5px;">
+					<div id="openNewBuy" class="nav-user-buy-wrap hide">
+						<div class="nav-user-buy-link">官方认证购买渠道</div>
+						<button id="closeNewBuy" class="nav-user-buy-btn"></button>
+					</div>
+				</a> -->
+						<div class="nav-nologin rightCol">
+				<a href="https://www.nuedc-training.com.cn/index/login?referer=https://www.nuedc-training.com.cn/index/news/details/new_id/54">登录</a>
+				<span>&nbsp;|&nbsp;</span>
+				<a href="https://www.nuedc-training.com.cn/index/register">注册</a>
+			</div>
+						</div>
+		</div>
+	</nav>
+</div>
+  <ul class="leader" style="display: block;bottom:40%;">
+    <li class="leader-item item4">
+      <div class="a">
+		  <div class="leader-item4-hide">
+			  <p class="leader-item4-title">编辑推荐</p>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://www.nuedc-training.com.cn/index/news/details/new_id/154" target="_blank">TI 杯2019年全国大学生电子设计竞赛赛题</a></span></li>
+			  </ul>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://www.nuedc-training.com.cn/index/news/details/new_id/145" target="_blank">2019年全国大学生电子设计竞赛仪器设备和主要元器件清单</a></span></li>
+			  </ul>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://www.nuedc-training.com.cn/index/news/details/new_id/143" target="_blank">2019年全国大学生电子设计竞赛实施过程说明</a></span></li>
+			  </ul>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://www.nuedc-training.com.cn/index/live/details/live_id/13" target="_blank">全国大学生电子设计竞赛组织工作会议直播</a></span></li>
+			  </ul>
+			  			  <ul class="leader-item4-ul">
+				  <li class="leader-item4-li"><b>·</b><span><a href="https://bbs.nuedc-training.com.cn/thread-682-1-1.html" target="_blank">电赛加油站 | 电赛教材抢“鲜”看！</a></span></li>
+			  </ul>
+			  		  </div>
+      </div>
+    </li>
+   </ul>
+   
+<script>
+	function get_cookie(Name) {
+		var search = Name + "="//查询检索的值
+		var returnvalue = "";//返回值
+		if (document.cookie.length > 0) {
+			sd = document.cookie.indexOf(search);
+			if (sd!= -1) {
+					sd += search.length;
+					end = document.cookie.indexOf(";", sd);
+					if (end == -1)
+					end = document.cookie.length;
+					//unescape() 函数可对通过 escape() 编码的字符串进行解码。
+					returnvalue=unescape(document.cookie.substring(sd, end))
+				}
+		}
+		return returnvalue;
+	}
+
+	if (get_cookie("buyClose")) {
+		$('#openNewBuy').parent().hover(function () {
+			$('#openNewBuy').show()
+		}, function () {
+			$('#openNewBuy').hide()
+		})
+	} else {
+		$('#openNewBuy').removeClass('hide')
+		$('#closeNewBuy,#openNewBuy').show()
+		$('#closeNewBuy').click(function (e) {
+			e.stopPropagation()
+			document.cookie="buyClose=1;domain=.nuedc-training.com.cn;expires=Fri, 31 Dec 9999 23:59:59 GMT";
+			$('#openNewBuy').hide().addClass('hide')
+			$('#closeNewBuy').hide()
+			$('#openNewBuy').parent().hover(function () {
+				$('#openNewBuy').show()
+			}, function () {
+				$('#openNewBuy').hide()
+			})
+			return false
+		})
+	}
+</script>
+
+<script>
+  news_id = '54';
+</script>
+<body onselectstart="return false">
+<section class="news-bg">
+  <section class="container">
+    <section class="clearfix">
+      <ul class="news-crumbs clearfix">
+        <li class="news-crumbs-item"><a href="https://www.nuedc-training.com.cn/index/news/index">全部</a></li>
+        <li class="video-crumbs-item"><em></em></li>
+        <li class="news-crumbs-item"><a href="https://www.nuedc-training.com.cn/index/news/index/id/6">竞赛动态</a></li>
+        <li class="video-crumbs-item"><em></em></li>
+        <li class="news-crumbs-item">2018年TI杯大学生电子设计竞赛题B-灭火飞行器</li>
+      </ul>
+    </section>
+    <section class="news-main clearfix">
+      <div class="newsMain-left" style="width:800px">
+        <div class="newsMain-content">
+          <div class="clearfix">
+            <div class="newsHeader-left clearfix">
+                            <!-- <span class="newsHeader-a">大学生</span>
+              <span class="newsHeader-a">邀请赛</span> -->
+            </div>
+            <ul class="share-ul clearfix">
+              <li class="share-li">
+                <div class="bdsharebuttonbox">
+                  <a href="#" class="bds_more" data-cmd="more">分享</a>
+                  <div class="video-details-share">
+                    <a class="sina" href="javascript:share.weibo();"></a>
+                    <a class="qqzone" href="javascript:share.qzone();"></a>
+                    <a class="qq" class="sharetotqq" href="javascript:share.qq();"></a>
+                    <a class="wechat-icon" href="javascript:share.weixin();"></a>
+                  </div>
+                </div>
+              </li>
+              <!-- <li class="share-li">
+                <a href="" class="share-liA"></a>
+                <span>收藏</span>
+              </li> -->
+            </ul>
+          </div>
+          <h2 class="newsMain-content-title">2018年TI杯大学生电子设计竞赛题B-灭火飞行器</h2>
+          <div class="newsMain-icon clearfix" style="margin:18px 0 32px 0;">
+            <div class="clearfix newsMain-icon-item"><i class="newsMain-i1"></i><span>2018-07-20 07:30</span></div>
+            <div class="clearfix newsMain-icon-item"><i class="newsMain-i3"></i>竞赛动态</div>
+          </div>
+          <div class="newsMain-content-zhaiyao">
+            摘要：2018年TI杯大学生电子设计竞赛题B-灭火飞行器          </div>
+          <p style="text-align:center"><span style="font-size:24px;letter-spacing:-1px">2018</span><span style="font-size:24px;font-family:黑体;letter-spacing:-1px">年</span><span style="font-size:24px;letter-spacing:-1px">TI</span><span style="font-size:24px;font-family:黑体;letter-spacing:-1px">杯大学生电子设计竞赛</span></p><p style="margin-top:5px;text-align:center;line-height:150%"><strong><span style="font-size:19px;line-height:150%;font-family: &#39;微软雅黑&#39;,sans-serif">B</span></strong><strong><span style="font-size:19px;line-height:150%;font-family:&#39;微软雅黑&#39;,sans-serif">题：灭火飞行器（本科）</span></strong></p><p style="margin-top:5px;text-align:left;line-height:150%"><span style="font-size:19px;line-height:150%;font-family: 黑体">1</span><span style="font-size:19px;line-height:150%;font-family: 黑体">．任务 </span></p><p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:16px;line-height:150%;font-family:宋体">基于四旋翼飞行器设计一个灭火飞行器（简称飞行器）。飞行器活动区域示意图如图1所示。在图1中，左下方的圆形区域是飞行器起飞及降落点；右侧正方形区域是灭火防区，防区中有4个用红色LED模拟的火源（</span><span style="font-size:16px;line-height:150%;font-family:宋体">火源用单只</span><span style="font-size:16px;line-height:150%">0.5W</span><span style="font-size:16px;line-height:150%;font-family:宋体">红色发光二极管来实现，建议</span><span style="font-size:16px;line-height:150%">LED</span><span style="font-size:16px;line-height:150%;font-family: 宋体">电流不超过</span><span style="font-size:16px;line-height:150%">25mA</span><span style="font-size:16px;line-height:150%;font-family:宋体">）。飞行器起飞后从A处进入防区，并以指定巡航高度在防区巡逻；发现防区有火源，用激光笔发射激光束的方式模拟灭火操作；所有火源全部熄灭后，飞行器从B处飞离防区返航，返航途中需穿越一个矩形框。从起飞到降落的整个操作过程不得超过5分钟，时间越短越好。</span> </p><p style="margin-left:0;text-align:center;text-indent:35px"><span style="font-size:14px;line-height:150%;font-family:宋体"><span style="font-size:16px;line-height:150%;font-family:宋体"><img style="padding:5px;" src="https://res.nuedc-training.com.cn/s/png/2019/02/11/news_201902118276.png"/></span></span></p><p style="margin-left: 0px; text-indent: 35px; text-align: center;"><span style="font-size:14px;line-height:150%;font-family:宋体">图1&nbsp; 消防飞行器活动区域示意图</span></p><p style="margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;text-indent:0;line-height:125%"><span style="font-size:19px;line-height:125%;font-family:黑体">2</span><span style="font-size:19px;line-height:125%;font-family:黑体">．<strong>要求</strong></span></p><p style="margin-left:0;text-indent:0;line-height:27px"><span style="font-size:16px">（1）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">飞行器从起飞地点垂直起飞升高到</span><span style="font-size:16px">150cm</span><span style="font-size:16px;font-family:宋体">±</span><span style="font-size:16px">10cm</span><span style="font-size:16px;font-family:宋体">的巡航高度。</span>&nbsp;<span style="font-size:16px;font-family:宋体">（</span><span style="font-size:16px">15</span><span style="font-size:16px;font-family:宋体">分）</span></p><p style="line-height: 27px; text-indent: 0em;"><span style="font-size:16px">（2）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">在起飞点的巡航高度上悬停</span><span style="font-size:16px">15</span><span style="font-size:16px;font-family:宋体">秒，然后以巡航高度从</span><span style="font-size:16px">A</span><span style="font-size:16px;font-family:宋体">处进入防区巡航飞行。</span><span style="font-size:16px;font-family:宋体">（</span><span style="font-size:16px">10</span><span style="font-size:16px;font-family:宋体">分）</span></p><p style="line-height: 27px; text-indent: 0em;"><span style="font-size:16px">（3）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">飞行器发现防区内的火源后，飞往火源上方用上激光笔照射火源作为灭火；激光笔光斑在以火源为圆心、直径</span><span style="font-size:16px">20cm</span><span style="text-indent: 0em; font-family: 宋体;">圆形区域保持</span><span style="text-indent: 0em;">2</span><span style="text-indent: 0em; font-family: 宋体;">秒及以上即视为灭火成功。（</span><span style="text-indent: 0em;">30</span><span style="text-indent: 0em; font-family: 宋体;">分）</span></p><p style="margin-left:0;text-indent:0;line-height:27px"><span style="font-size:16px">（4）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">飞行器从</span><span style="font-size:16px">B</span><span style="font-size:16px;font-family:宋体">处飞离防区。</span><span style="font-size:16px;font-family:宋体">（</span><span style="font-size:16px">10</span><span style="font-size:16px;font-family:宋体">分）</span></p><p style="margin-left:0;text-indent:0;line-height:27px"><span style="font-size:16px">（5）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">返航途中飞行器需要穿过一个宽高为</span><span style="font-size:16px">100</span><span style="font-family:Times New Roman, serif"><span style="font-size: 14px;">*</span></span><span style="font-size:16px">70cm</span><span style="font-size:16px;font-family:宋体">的矩形框。</span><span style="font-size:16px;font-family:宋体">（</span><span style="font-size:16px">15</span><span style="font-size:16px;font-family:宋体">分）</span></p><p style="margin-left:0;text-indent:0;line-height:27px"><span style="font-size:16px">（6）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">回到降落点上空，垂直下降，准确平稳地降落在降落点；</span><span style="font-size:16px;font-family:宋体">（</span><span style="font-size:16px">10</span><span style="font-size:16px;font-family:宋体">分）</span></p><p style="margin-left:0;text-indent:0;line-height:27px"><span style="font-size:16px">（7）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;</span></span><span style="font-size:16px;font-family:宋体">整个飞行过程计时得分。</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:16px;font-family:宋体">&nbsp;&nbsp;&nbsp;&nbsp; （</span><span style="font-size:16px">10</span><span style="font-size:16px;font-family:宋体">分）</span></p><p style="margin-left:0;text-indent:0;line-height:27px"><span style="font-size:16px">（8）</span><span style="font-family:Times New Roman;font-size:10px">&nbsp;</span><span style="font-size:16px;font-family:宋体">其他。</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:16px;font-family:宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; （</span><span style="font-size:16px">10</span><span style="font-size:16px;font-family:宋体">分）</span></p><p style="margin-left:0;text-indent:0;line-height:27px"><span style="font-size:16px">（9）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">设计报告</span><span style="font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-size:16px;font-family:宋体"> &nbsp; （</span><span style="font-size:16px">20</span><span style="font-size:16px;font-family:宋体">分）</span></p><table cellspacing="0" cellpadding="0" align="center"><tbody><tr style=";height:32px" class="firstRow"><td style="border: 1px solid windowtext; padding: 0px 7px;" height="32"><p style="text-align:center"><strong><span style="font-size:16px;font-family:   宋体">项</span></strong><strong><span style="font-size:16px"> &nbsp;</span></strong><strong><span style="font-size:16px;font-family:宋体">目</span></strong></p></td><td style="border-color: windowtext; border-style: solid solid solid none; border-width: 1px 1px 1px medium; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" height="32"><p style="text-align:center"><strong><span style="font-size:16px;font-family:宋体">主要内容</span></strong></p></td><td style="border-color: windowtext; border-style: solid solid solid none; border-width: 1px 1px 1px medium; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" height="32"><p style="text-align:center"><strong><span style="font-size:16px;font-family:   宋体">满分</span></strong></p></td></tr><tr style=";height:1px"><td style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="1"><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">系统方案</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">方案描述、比较与选择</span><span style="color:windowtext"> </span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="margin-right:14px;text-align:right"><span style="font-size:16px">3</span></p></td></tr><tr style=";height:1px"><td style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="1"><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">设计与论证</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p><span style="font-size:16px;font-family:宋体">控制方法描述及参数计算</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="margin-right:14px;text-align:right"><span style="font-size:16px">5</span></p></td></tr><tr style=";height:1px"><td style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="1"><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">电路及程序设计</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">系统组成，原理框图与各部分电路图</span></p><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">系统软件设计与流程图</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="margin-right:14px;text-align:right"><span style="font-size:16px">7</span></p></td></tr><tr style=";height:1px"><td style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" valign="top" height="1"><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">测试方案与测试结果</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">测试方案及测试条件</span></p><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">测试结果完整性</span></p><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">测试结果分析</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="margin-right:14px;text-align:right"><span style="font-size:16px">3</span></p></td></tr><tr style=";height:1px"><td style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" height="1"><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">设计报告结构</span></p><p style="text-align:right"><span style="font-family:   宋体;color:windowtext">及规范性</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="text-align:justify;text-justify:inter-ideograph"><span style="font-family:宋体;color:windowtext">摘要、报告正文结构、公式、图表的完整性和规范性</span></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="margin-right:14px;text-align:right"><span style="font-size:16px">2</span></p></td></tr><tr style=";height:1px"><td colspan="2" style="border-color: windowtext; border-style: none solid solid; border-width: medium 1px 1px; border-image: none 100% / 1 / 0 stretch; padding: 0px 7px;" height="1"><p style="text-align:center"><strong><span style="font-size:16px;font-family:   宋体">总分</span></strong></p></td><td style="border-color: windowtext; border-style: none solid solid none; border-width: medium 1px 1px medium; padding: 0px 7px;" height="1"><p style="margin-right:14px;text-align:right;text-indent:0"><strong><span style="font-size:16px">20</span></strong></p></td></tr></tbody></table><p style="margin-top:5px;text-align:left;line-height:150%"><span style="font-size:19px;line-height:150%;font-family: 黑体">3</span><span style="font-size:19px;line-height:150%;font-family: 黑体">．</span><strong><span style="font-size:19px;line-height:150%;font-family:华文中宋">说明</span></strong></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（1）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">参赛队使用飞行器时应遵守中国民用航空局的相关管理规定。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（2）</span><span style="font-family:Times New Roman;font-size:10px">&nbsp;</span><span style="font-size:16px;font-family:宋体">飞行器桨叶旋转速度高，有危险！请务必注意自己及他人的人身安全；操作者需佩戴防护镜及防护手套。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（3）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">飞行器可自制或外购，飞行器机身必须标注参赛队号；飞行器桨叶固定轴间最大轴间距不超过</span><span style="font-size:16px">50cm</span><span style="font-size:16px;font-family:宋体">；飞行器必须带防护圈，否则不予测试。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（4）</span><span style="font-family:Times New Roman;font-size:10px">&nbsp;</span><span style="font-size:16px;font-family:宋体">以模拟火源的</span><span style="font-size:16px">LED</span><span style="font-size:16px;font-family:宋体">为圆心，画一个直径</span><span style="font-size:16px">20cm</span><span style="font-size:16px;font-family:宋体">的圆（边缘线宽不超过</span><span style="font-size:16px">1mm</span><span style="font-size:16px;font-family:宋体">），以便观察灭火动作。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（5）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">防区边缘有</span><span style="font-size:16px">5cm</span><span style="font-size:16px;font-family:宋体">宽黑色边框。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（6）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">测试现场无阳光直射。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（7）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">飞行器的旋翼的数量不少于两个。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（8）<span style="font:9px &#39;Times New Roman&#39;">&nbsp;</span></span><span style="font-size:16px;font-family:宋体">飞行器的姿态检测及飞行控制必须使用</span><span style="font-size:16px">TI </span><span style="font-size:16px;font-family:宋体">公司的处理器，例如</span><span style="font-size:16px">C2000</span><span style="font-size:16px;font-family:宋体">、</span><span style="font-size:16px">MSP432</span><span style="font-size:16px;font-family:宋体">、</span><span style="font-size:16px">TIVA M4</span><span style="font-size:16px;font-family:宋体">、</span><span style="font-size:16px">MSP430</span><span style="font-size:16px;font-family:宋体">等。所有的电路板应方便评测专家检查芯片使用情况。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（9）</span><span style="font-family:Times New Roman;font-size:10px">&nbsp;</span><span style="font-size:16px;font-family:宋体">返航途中任意放置的矩形框宽</span><span style="font-size:16px">100cm</span><span style="font-size:16px;font-family:宋体">，高</span><span style="font-size:16px">70cm</span><span style="font-size:16px;font-family:宋体">；边框为黑色，边框宽度不大于</span><span style="font-size:16px">6cm</span><span style="font-size:16px;font-family:宋体">，矩形框下边框距地面</span><span style="font-size:16px">110cm</span><span style="font-size:16px;font-family:宋体">；建议采用</span><span style="font-size:16px">KT</span><span style="font-size:16px;font-family:宋体">板、泡沫等轻质材料。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（10）&nbsp;</span><span style="font-size:16px;font-family:宋体">起飞前，飞行器可手动放置到起飞点；起飞可手动控制，起飞后整个飞行过程中不得人为干预；若采用飞行器外的启动或急停装置，起飞后必须立刻将装置交给评审专家。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（11）</span><span style="font-size:16px;font-family:宋体">每次测试全程中不得更换电池；允许测试</span><span style="font-size:16px">2</span><span style="font-size:16px;font-family:宋体">次，两次测试之间允许更换电池，更换电池时间小于</span><span style="font-size:16px">2</span><span style="font-size:16px;font-family:宋体">分钟。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（12）</span><span style="font-size:16px;font-family:宋体">飞行器起飞及降落必须垂直进行，否则将酌情扣分；飞行器起飞后必须在指定高度巡航，否则将酌情扣分。</span><span style="font-size:16px"> </span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（13）</span><span style="font-size:16px;font-family:宋体">飞行器必须从指定位置进出巡航区，巡航灭火期间飞行器外缘偏离巡航区一个机身以上将酌情扣分；飞行器必须从指定方向返回起飞点降落。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（14）</span><span style="font-size:16px;font-family:宋体">飞行期间，飞行器触及地面后自行恢复飞行的，酌情扣分；触地后</span><span style="font-size:16px">5s</span><span style="font-size:16px;font-family:宋体">内不能自行恢复飞行视为失败，失败前完成动作仍计分。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（15）</span><span style="font-size:16px;font-family:宋体">平稳降落是指在降落过程中无明显的跌落、弹跳及着地后滑行等情况出现。</span></p><p style="margin-left:0;line-height:27px"><span style="font-size:16px">（16）</span><span style="font-size:16px;font-family:宋体">为安全起见，可沿飞行区域四周架设安全网</span> <span style="font-size:16px;font-family:宋体">（长</span><span style="font-size:16px">500cm</span><span style="font-size:16px;font-family:宋体">，宽</span><span style="font-size:16px">400cm</span><span style="font-size:16px;font-family:宋体">，高</span><span style="font-size:16px"> 200cm</span><span style="font-size:16px;font-family:宋体">），顶部无需架设。</span></p><p style="margin-top:16px;margin-right:0;margin-bottom:0;margin-left:0;margin-bottom:0;line-height:125%"><span style="font-size:16px;line-height:125%;font-family:&#39;Times New Roman&#39;,serif">&nbsp;</span></p><p><br/></p>          <!-- 新闻内容 -->
+          <!-- <div class="newsMain-btns clearfix">
+            <a href="" class="newsMain-btns-item" style="margin-right:30px;">收藏</a>
+            <a href="" class="newsMain-btns-item">分享</a>
+          </div> -->
+        </div>
+        
+        <div class="bbs-data">
+                  </div>
+        
+        <div class="newsMain-footer clearfix">
+                    <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/53" class="newsMain-footer-left" title="2018年TI杯大学生电子设计竞赛题A-电流信号检测装置">
+            << 上一篇<br>
+            <span>2018年TI杯大学生电子设计竞赛题A-电流信号检测装置</span>
+          </a>
+                    <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/55" class="newsMain-footer-right" title="2018年TI杯大学生电子设计竞赛题C-无线充电电动小车">
+            下一篇 >><br>
+            <span>2018年TI杯大学生电子设计竞赛题C-无线充电电动小车</span>
+          </a>
+                  </div>
+      </div>
+      <div class="newsMain-right" style="width: 360px">
+        <div class="newsT1-right">
+            <div class="news-title">
+                <h2>热点推荐</h2>
+              </div>
+          <ul class="news-right-ul">
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/239" title="2020 年 TI 杯辽宁省大学生电子设计竞赛评审结果公示"> 2020 年 TI 杯辽宁省大学生电子设计竞赛评审结果公示</a>
+              </div>
+            </li>
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/238" title="TI 杯 2020 年省级大学生电子设计竞赛圆满落幕"> TI 杯 2020 年省级大学生电子设计竞赛圆满落幕</a>
+              </div>
+            </li>
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/237" title="2020年“TI杯”山东省大学生电子设计竞赛获奖名单公布"> 2020年“TI杯”山东省大学生电子设计竞赛获奖名单公布</a>
+              </div>
+            </li>
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/236" title="2020年“TI杯”第八届浙江省大学生电子设计竞赛获奖公示名单"> 2020年“TI杯”第八届浙江省大学生电子设计竞赛获奖公示名单</a>
+              </div>
+            </li>
+                        <li class="news-right-li">
+              <div class="newsRight-liText">
+                <b class="leftCol">·</b>
+                <a href="https://www.nuedc-training.com.cn/index/news/details/new_id/235" title="关于公布2020年江苏省TI杯大学生电子设计竞赛评奖结果通知"> 关于公布2020年江苏省TI杯大学生电子设计竞赛评奖结果通知</a>
+              </div>
+            </li>
+                      </ul>
+        </div>
+        <div class="newsT1-right">
+          <div class="news-title">
+            培训资源
+            <a href="https://www.nuedc-training.com.cn/index/video/index" class="newsTitle-a rightCol">更多 ></a>
+          </div>
+          <ul class="">
+                        <li class="newsMainRight-li">
+              <a href="https://www.nuedc-training.com.cn/index/video/video_list" class="video02Right01-img" title="TI 产品和工具在电赛中的应用">
+                <img width="320" height="180" src="https://res.nuedc-training.com.cn/s/png/2020/09/02/courser_202009028585.png" alt="TI 产品和工具在电赛中的应用"/>
+                <p><i></i>TI 产品和工具在电赛中的应用</p>
+              </a>
+            </li>
+                        <li class="newsMainRight-li">
+              <a href="https://www.nuedc-training.com.cn/index/video/video_list" class="video02Right01-img" title="在疫情期间，如何在家准备电赛？">
+                <img width="320" height="180" src="https://res.nuedc-training.com.cn/s/png/2020/08/18/course_202008184487.png" alt="在疫情期间，如何在家准备电赛？"/>
+                <p><i></i>在疫情期间，如何在家准备电赛？</p>
+              </a>
+            </li>
+                      </ul>
+        </div>
+        <div class="news-huodong" style="width: 360px">
+          <div class="news-title clearfix" style="padding-left: 20px;padding-right: 20px;padding-top: 20px;">
+            <h2>活动专区</h2>
+            <a href="https://www.nuedc-training.com.cn/index/activity/index" class="newsTitle-a rightCol">更多 ></a>
+          </div>
+          <ul class="" style="padding-left: 20px;padding-right: 20px">
+                        <li class="newsMainRight-li">
+              <a href="https://www.nuedc-training.com.cn/index/activity/activity_detail/id/28" class="newsMainRight-img" title="晒出你的设计报告，赢惊喜好礼！">
+                <img width="320" height="160" src="https://res.nuedc-training.com.cn/s/png/2020/10/19/activity_202010199138.png" alt="晒出你的设计报告，赢惊喜好礼！"/>
+                <p>晒出你的设计报告，赢惊喜好礼！</p>
+              </a>
+              <!-- <div class="newsMainRight-icon01"><i></i><span>2020年10月16日 - 2020年11月30日</span></div> -->
+            </li>
+                        <li class="newsMainRight-li">
+              <a href="https://www.nuedc-training.com.cn/index/activity/activity_detail/id/27" class="newsMainRight-img" title="电赛直播训练营：TI 产品和工具在电赛中的应用">
+                <img width="320" height="160" src="https://res.nuedc-training.com.cn/s/jpg/2020/10/19/activity_202010195396.jpg" alt="电赛直播训练营：TI 产品和工具在电赛中的应用"/>
+                <p>电赛直播训练营：TI 产品和工具在电赛中的应用</p>
+              </a>
+              <!-- <div class="newsMainRight-icon01"><i></i><span>2020年08月11日 - 2020年09月10日</span></div> -->
+            </li>
+                      </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+</section>
+<footer class="footer">
+    <div class="container clearfix">
+      <div class="leftCol">
+        <nav class="footer-nav clearfix">
+          <a class="footer-link" href="https://www.nuedc-training.com.cn/index/common/site" target="_blank">网站介绍</a>
+          <a class="footer-link" href="https://www.nuedc-training.com.cn/index/common/about" target="_blank">联系我们</a>
+          <a class="footer-link" href="https://www.nuedc-training.com.cn/index/common/reg" target="_blank">注册协议</a>
+          <a class="footer-link" href="https://www.nuedc-training.com.cn/index/common/privacy" target="_blank">隐私条款</a>
+        </nav>
+        <p class="footer-copyright">
+          Copyright 2018-2020 NUEDC All Rights Reserved. 全国大学生电子设计竞赛组织委员会 版权所有 <a class="footer-reference" href="http://www.beian.miit.gov.cn/" target="_blank">津ICP备18002217号-1</a>
+        </p>
+      </div>
+      <div class="footer-list rightCol clearfix">
+        <a href="https://www.nuedc-training.com.cn/index/index?form_model=1" class="leftCol footer-item">
+            <img width="50" src="https://static.nuedc-training.com.cn/images/new/foot-icon1.png"/>
+          <p>电脑版</p>
+        </a>
+        <a href="https://www.nuedc-training.com.cn/mobile/index?form_model=2" class="leftCol footer-item">
+            <img width="50" src="https://static.nuedc-training.com.cn/images/new/foot-icon2.png"/>
+            <p>触屏版</p>
+          </a>
+      </div>
+      <!--<div class="footer-wechat">
+        扫描二维码<br>
+        关注电赛微信
+        <img width="80" height="80" class="wechat" src="https://static.nuedc-training.com.cn/images/wechat.jpg" alt="">
+      </div>-->
+    </div>
+  </footer>
+  <div style="display:none"><script src="//s22.cnzz.com/z_stat.php?id=1274193147&web_id=1274193147" language="JavaScript"></script>
+  <script src="https://res.nuedc-training.com.cn/cnzz_ext.min.js" language="JavaScript"></script>
+  <script>
+    var isuser_this = news_id;
+    if(isuser_this != ''){
+         window.onload = function() {
+        // console.log(_czc);
+        _czc.push(['_trackPageview', "https://www.nuedc-training.com.cn/index/news/details/new_id/"+isuser_this, ""]);
+      };
+    }
+  </script>
+</div>
+  <script async="async" src="//www.ti.com/assets/js/headerfooter/analytics.js"></script>
+  <script src="https://static.nuedc-training.com.cn/js/jquery.downCount.min.js"></script>
+ <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.downCount/1.0.0/jquery.downCount.min.js"></script>-->
+  <script src="https://static.nuedc-training.com.cn/js/player3.2.0/player/cyberplayer.js"></script>
+  <script src="https://static.nuedc-training.com.cn/js/select_area_zh-cn.js"></script>
+  <script src="https://static.nuedc-training.com.cn/js/simple-share.min.js"></script>
+  <script src="https://www.nuedc-training.com.cn/static/js/GZApp.min.js?v=4"></script>
+  <script>
+//  $(function () {
+//    if ($("#searchForm").length) {
+//      var $form = $("#searchForm").Validform({
+//        tiptype: 4,
+//        ignoreHidden: true,
+//        ajaxPost: false,
+//        beforeSumbmit: function () {
+//        
+//        },
+//        callback: function (data) {
+//
+//        }
+//      })
+//    }
+//    if ($('#bannerWrap').length) {
+//      var banner = new window.GZApp.Scroll({
+//        mainWrap: '#bannerWrap',
+//        auto: true,
+//        speed: 0.5,
+//        tagWrap: '#bannerTab2'
+//      })
+//      banner.showHide();
+//    }
+//  })
+  </script>
+  <script>
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?602847cbdad9ab47a063c229686a77e3":"https://jspassport.ssl.qhimg.com/11.0.1.js?602847cbdad9ab47a063c229686a77e3";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script type="text/javascript">
+  var share = new SimpleShare({
+    url: window.location.href,
+    title: "2018年TI杯大学生电子设计竞赛题B-灭火飞行器",
+    content: '2018年TI杯大学生电子设计竞赛题B-灭火飞行器',
+    pic: 'https://res.nuedc-training.com.cn/s/png/2018/07/20/news_201807204801.png'
+  });
+</script>
+<script>
+  var hide = '0';
+  if(hide == 1){
+    $('.nav-user').empty()
+    $(function(){
+      var a = "https://www.nuedc-training.com.cn/index/index/login_new";
+      var times = Math.floor(Math.random() * 3) + 1
+      setTimeout(function() {
+        $.ajax({
+          type:"GET",
+          url:a,
+          dataType:"json",
+          data:'',
+          async:true,
+          xhrFields:{
+              withCredentials:true
+          },
+          success:function (res) {
+           $('.nav-user').html(res.data)
+          }
+        })
+      }, times*1000)
+    }())
+
+  }
+</script>
+</body>
+</html>
